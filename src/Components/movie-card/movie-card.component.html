@@ -1,0 +1,45 @@
+<div class="container">
+  <div class="d-flex flex-column py-5 text-white p-5 rounded-3">
+    <div>
+      <h2>{{ sectionName }}</h2>
+    </div>
+    <div class="row flex-nowrap overflow-auto">
+      @for (movie of MovieData; track $index) {
+      <div class="col-md-4 col-lg-3 col-sm-6 my-4">
+        <div
+          class="p-2 bg-card rounded-3 d-flex flex-column justify-content-between w-100 h-100 cardo cursor-pointer"
+          [routerLink]="['/movie', movie.id]"
+          routerLinkActive="router-link-active"
+        >
+          <div>
+            <img
+              [src]="
+                movie.poster_path
+                  ? 'https://image.tmdb.org/t/p/w500/' + movie.poster_path
+                  : '../../assets/images/ezgif-6c3e90eb8dd16.png'
+              "
+              class="rounded-3 w-100"
+              [alt]="movie.overview"
+            />
+            <div class="text-center">
+              <h4 class="text-wrap text-break m-0">
+                {{ movie.name }}{{ movie.title }}
+              </h4>
+            </div>
+          </div>
+          <div>
+            <div class="text-center p-2 bg-1 rounded-3 my-1">
+              <i class="fa-regular fa-calendar"></i>
+              {{ movie.release_date.split("-")[0] }}
+            </div>
+            <div class="text-center p-2 bg-1 rounded-3">
+              <i class="fa-solid fa-star text-warning"></i>
+              {{ movie.vote_average }}
+            </div>
+          </div>
+        </div>
+      </div>
+      }
+    </div>
+  </div>
+</div>

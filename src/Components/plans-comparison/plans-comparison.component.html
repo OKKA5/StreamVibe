@@ -1,0 +1,96 @@
+<div class="container text-white py-5">
+  <div class="py-3">
+    <h2>Compare our plans and find the right one for you</h2>
+    <p class="grey">
+      StreamVibe offers three different plans to fit your needs: Basic,
+      Standard, and Premium. Compare the features of each plan and choose the
+      one that's right for you.
+    </p>
+  </div>
+
+  <div class="table-responsive">
+    <table class="table text-center">
+      <thead>
+        <tr class="bg-danger">
+          <th scope="col">Features</th>
+          <th scope="col">Basic</th>
+          <th scope="col">
+            Standard
+            <span class="bg-red p-1 rounded-2 text-white small">Popular</span>
+          </th>
+          <th scope="col">Premium</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Content</th>
+          @for (Plan of Plans; track $index) {
+          <td>{{ Plan.content }}</td>
+          }
+        </tr>
+        <tr>
+          <th>Devices</th>
+          @for (Plan of Plans; track $index) {
+          <td>{{ Plan.devices }}</td>
+          }
+        </tr>
+        <tr>
+          <th>Free Trial</th>
+          @for (Plan of Plans; track $index) {
+          <td>{{ Plan.freeTrial }}</td>
+          }
+        </tr>
+        <tr>
+          <th>Cancel anyyime</th>
+          @for (Plan of Plans; track $index) {
+          <td>{{ Plan.cancelAnytime }}</td>
+          }
+        </tr>
+        <tr>
+          <th>HDR</th>
+          @for (Plan of Plans; track $index) {
+          <td>{{ Plan.hdr }}</td>
+          }
+        </tr>
+        <tr>
+          <th>Dolpy-Atmos</th>
+          @for (Plan of Plans; track $index) {
+          <td>{{ Plan.dolbyAtmos }}</td>
+          }
+        </tr>
+        <tr>
+          <th>Ad-Free</th>
+          @for (Plan of Plans; track $index) {
+          <td>{{ Plan.adFree }}</td>
+          }
+        </tr>
+        <tr>
+          <th>Online Viewing</th>
+          @for (Plan of Plans; track $index) {
+          <td>{{ Plan.offlineViewing }}</td>
+          }
+        </tr>
+        <tr>
+          <th>Family Sharing</th>
+          @for (Plan of Plans; track $index) {
+          <td>{{ Plan.familySharing }}</td>
+          }
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+<style>
+    @media (max-width: 1250px) {
+      .table th, .table td {
+        padding: 4px;
+      }
+  
+      .table {
+        font-size: 10px;
+      }
+      .bg-red {
+        font-size: 10px;
+      }
+    }
+  </style>

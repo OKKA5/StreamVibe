@@ -1,0 +1,142 @@
+<div class="container text-white d-flex flex-column gap-3">
+  <div class="MoviePoster">
+    <img
+      [src]="
+        MovieDetailes.backdrop_path
+          ? 'https://image.tmdb.org/t/p/w500/' + MovieDetailes.backdrop_path
+          : '../../assets/images/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg'
+      "
+      class="w-100 rounded-4"
+      alt=""
+    />
+    <div class="MovieDetailes text-center p-5">
+      <h3 class="text-white">
+        {{ MovieDetailes.title }}{{ MovieDetailes.name }}
+      </h3>
+      <div class="d-flex gap-4 justify-content-center align-items-center">
+        <button class="border-0 p-3 rounded-2 bg-red scalo">
+          <a
+  class="text-white"
+>
+  <i class="fa-solid fa-play text-white"></i>
+  Play Now
+</a>
+
+        </button>
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-9 mt-2 d-flex flex-column gap-3">
+      <div class="p-4 br-thin text-center rounded-2">
+        <h5 class="grey fs-5">Discription</h5>
+        <P>{{ MovieDetailes.overview ? MovieDetailes.overview : "N/A" }}</P>
+      </div>
+      <div>
+        <div class="d-flex flex-column py-5 text-white p-5 rounded-3 br-thin">
+          <div>
+            <h2>Similar Movies</h2>
+          </div>
+          <div class="row flex-nowrap overflow-auto">
+            @for (movie of SimilarMovies; track $index) {
+            <div class=" col-lg-4 col-sm-6  my-4">
+              <div
+                class="p-2 bg-card rounded-3 d-flex flex-column justify-content-between w-100 h-100 cardo cursor-pointer"
+                [routerLink]="['/movie', movie.id]"
+                routerLinkActive="router-link-active"
+              >
+                <div>
+                  <img
+                    [src]="
+                      movie.poster_path
+                        ? 'https://image.tmdb.org/t/p/w500/' + movie.poster_path
+                        : '../../assets/images/ezgif-6c3e90eb8dd16.png'
+                    "
+                    class="rounded-3 w-100"
+                    [alt]="movie.overview"
+                  />
+                  <div class="text-center">
+                    <h4 class="text-wrap text-break m-0">
+                      {{ movie.name }}{{ movie.title }}
+                    </h4>
+                  </div>
+                </div>
+                <div>
+                  <div class="text-center p-2 bg-1 rounded-3 my-1">
+                    <i class="fa-regular fa-calendar"></i>
+                    {{
+                      movie.release_date
+                        ? movie.release_date.split("-")[0]
+                        : "N/A"
+                    }}
+                  </div>
+                  <div class="text-center p-2 bg-1 rounded-3">
+                    <i class="fa-solid fa-star text-warning"></i>
+                    {{ movie.vote_average ? movie.vote_average : "N/A" }}
+                  </div>
+                </div>
+              </div>
+            </div>
+            }
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-lg-3 mt-2">
+      <div class="p-4 br-thin rounded d-flex flex-column gap-4 h-100">
+        <div>
+          <h3 class="grey fs-5">
+            <i class="fa-regular fa-calendar"></i> Realease Year
+          </h3>
+          <p class="p-2 rounded-2 br-thin w-fit m-0">
+            {{
+              MovieDetailes ? MovieDetailes.release_date.split("-")[0] : "N/A"
+            }}
+          </p>
+        </div>
+        <div>
+          <h3 class="grey fs-5">
+            <i class="fa-solid fa-globe"></i> Available Languages
+          </h3>
+          <div class="d-flex flex-wrap gap-2">
+            @for (Language of MovieDetailes.spoken_languages; track $index) {
+            <p class="p-2 rounded-2 br-thin w-fit m-0">
+              {{ Language.name ? Language.name : "N/A" }}
+            </p>
+            }
+          </div>
+        </div>
+        <div>
+          <h3 class="grey fs-5"><i class="fa-regular fa-star"></i> Ratings</h3>
+          <div class="p-3 br-thin w-fit rounded-2">
+            <i class="fa-solid fa-star red"></i
+            ><i class="fa-solid fa-star red"></i
+            ><i class="fa-solid fa-star red"></i
+            ><i class="fa-solid fa-star red"></i
+            ><i class="fa-solid fa-star red"></i>
+            {{
+              MovieDetailes.vote_average ? MovieDetailes.vote_average : "N/A"
+            }}
+          </div>
+        </div>
+        <div>
+          <h3 class="grey"><i class="fa-regular fa-face-smile"></i> Geners</h3>
+          <div class="d-flex flex-wrap gap-2">
+            @for (genre of MovieDetailes.genres; track $index) {
+            <p class="p-2 rounded-2 br-thin w-fit m-0">
+              {{ genre.name ? genre.name : "N/A" }}
+            </p>
+            }
+          </div>
+        </div>
+        <div>
+          <h3 class="grey"><i class="fa-regular fa-clock"></i> Runtime</h3>
+          <p class="p-2 rounded-2 br-thin w-fit m-0">
+            {{ MovieDetailes.runtime ? MovieDetailes.runtime : "N/A" }} minutes
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-start-free-trial></app-start-free-trial>

@@ -1,0 +1,20 @@
+.thin-both-ends-line {
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, transparent 0%, rgb(255, 0, 0) 30%, rgb(255, 0, 0) 70%, transparent 100%);
+  }
+  span{
+    cursor: pointer;
+  }
+
+  .answer {
+    transition: opacity 0.3s ease ;
+  }
+  
+  .topHide {
+    position: absolute;
+    top: -100px;
+    opacity: 0;
+  }
+
+  

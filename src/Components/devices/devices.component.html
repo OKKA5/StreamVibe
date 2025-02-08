@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="p-4 ">
+    <h2 class="text-white">We Provide you streaming experience across various devices.</h2>
+    <p class="grey">
+      With StreamVibe, you can enjoy your favorite movies and TV shows anytime,
+      anywhere. Our platform is designed to be compatible with a wide range of
+      devices, ensuring that you never miss a moment of entertainment.
+    </p>
+  </div>
+  <div class="row">
+    @for (device of devices; track $index) {
+        <div class="col-lg-4 col-md-6 p-4 grey">
+            <div class="p-4 card-gradient rounded-3 br-thin d-flex flex-column gap-2">
+                <div class="d-flex gap-3 align-items-center">
+                    <div class="p-3 br-thin rounded-2"><i [class]="device.icon"></i></div>
+                    <div class="fs-4 bold text-white">{{device.name}}</div>
+                  </div>
+                  <div>
+                    <p>{{device.description}}</p>
+                  </div>
+                </div>
+            </div>
+    }
+  </div>
+</div>

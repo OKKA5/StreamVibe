@@ -1,0 +1,15 @@
+.bg-black {
+    color: black;
+}
+li {
+    color: grey
+}
+.bg-iconblack {
+    background-color:rgb(41, 41, 41);
+}
+a{
+    text-decoration: none;
+}
+.text-grey{
+    color:grey
+}

@@ -1,0 +1,178 @@
+<div class="text-white container py-5">
+    <div class="row">
+      <div class="col-md-10">
+        <h3>Frequently asked Questions</h3>
+        <p class="grey">
+          Got questions? We've got answers! Check out our FAQ section to find
+          answers to the most common questions about StreamVibe.
+        </p>
+      </div>
+      <div class="col-md-2 w-fit ms-auto">
+        <button class="p-2 rounded-2 btn-red border-0 ms-auto" [routerLink]="['/Support']" >Ask a Question</button>
+      </div>
+    </div>
+  <div>
+    <div class="row">
+      <div class="col-md-6 d-flex flex-column p-5 gap-2 border-danger">
+        <div class="d-flex align-items-center">
+          <div class="p-2">
+            <span class="bg-black p-2 w-fit rounded-2">01</span>
+          </div>
+          <div>
+            <div class="">What is streamVibe ?</div>
+            <div class="topHide answer grey" #answer1>
+              StreamVibe is a streaming service that allows you to watch movies
+              and shows on demand.
+            </div>
+          </div>
+          <div class="p-2 ms-auto">
+            <span class="bg-black p-2 w-fit rounded-2" (click)="toggleanswer1()"
+              >+</span
+            >
+          </div>
+        </div>
+        <div class="thin-both-ends-line mt-3"></div>
+      </div>
+      <div class="col-md-6 d-flex flex-column p-5 gap-2 border-danger">
+        <div class="d-flex align-items-center">
+          <div class="p-2">
+            <span class="bg-black p-2 w-fit rounded-2">02</span>
+          </div>
+          <div>
+            <div>How much does StreamVibe cost?</div>
+            <div class="topHide answer grey" #answer2>
+              Basic: $9.99/month, Standard: $12.99/month, Premium: $14.99/month.
+            </div>
+          </div>
+          <div class="p-2 ms-auto">
+            <span class="bg-black p-2 w-fit rounded-2" (click)="toggleanswer2()"
+              >+</span
+            >
+          </div>
+        </div>
+        <div class="thin-both-ends-line mt-3"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 d-flex flex-column p-5 gap-2 border-danger">
+        <div class="d-flex align-items-center">
+          <div class="p-2">
+            <span class="bg-black p-2 w-fit rounded-2">03</span>
+          </div>
+          <div>
+            <div>What content is available?</div>
+            <div class="topHide answer grey" #answer3>
+              Movies, TV shows, and actor/creator information
+            </div>
+          </div>
+          <div class="p-2 ms-auto">
+            <span class="bg-black p-2 w-fit rounded-2" (click)="toggleanswer3()"
+              >+</span
+            >
+          </div>
+        </div>
+        <div class="thin-both-ends-line mt-3"></div>
+      </div>
+      <div class="col-md-6 d-flex flex-column p-5 gap-2 border-danger">
+        <div class="d-flex align-items-center">
+          <div class="p-2">
+            <span class="bg-black p-2 w-fit rounded-2">04</span>
+          </div>
+          <div>
+            <div>How can I watch StreamVibe?</div>
+            <div class="topHide answer grey" #answer4>
+              Browse Movies or TV Shows, or search for specific titles
+            </div>
+          </div>
+          <div class="p-2 ms-auto">
+            <span class="bg-black p-2 w-fit rounded-2" (click)="toggleanswer4()"
+              >+</span
+            >
+          </div>
+        </div>
+        <div class="thin-both-ends-line mt-3"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 d-flex flex-column p-5 gap-2 border-danger">
+        <div class="d-flex align-items-center">
+          <div class="p-2">
+            <span class="bg-black p-2 w-fit rounded-2">05</span>
+          </div>
+          <div>
+            <div>How do I sign up for StreamVibe?</div>
+            <div class="topHide answer grey" #answer5>
+              Go to the Subscriptions page, choose a plan, and complete the
+              signup.
+            </div>
+          </div>
+          <div class="p-2 ms-auto">
+            <span class="bg-black p-2 w-fit rounded-2" (click)="toggleanswer5()"
+              >+</span
+            >
+          </div>
+        </div>
+        <div class="thin-both-ends-line mt-3"></div>
+      </div>
+      <div class="col-md-6 d-flex flex-column p-5 gap-2 border-danger">
+        <div class="d-flex align-items-center">
+          <div class="p-2">
+            <span class="bg-black p-2 w-fit rounded-2">06</span>
+          </div>
+          <div>
+            <div>What is the StreamVibe free trial?</div>
+            <div class="topHide answer grey" #answer6>
+              A 14-day free trial for new users.
+            </div>
+          </div>
+          <div class="p-2 ms-auto">
+            <span class="bg-black p-2 w-fit rounded-2" (click)="toggleanswer6()"
+              >+</span
+            >
+          </div>
+        </div>
+        <div class="thin-both-ends-line mt-3"></div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6 d-flex flex-column p-5 gap-2 border-danger">
+        <div class="d-flex align-items-center">
+          <div class="p-2">
+            <span class="bg-black p-2 w-fit rounded-2">07</span>
+          </div>
+          <div>
+            <div>How do I contact StreamVibe customer support?</div>
+            <div class="topHide answer grey" #answer7>
+              Visit the Support page for FAQs, contact forms, or live chat.
+            </div>
+          </div>
+          <div class="p-2 ms-auto">
+            <span class="bg-black p-2 w-fit rounded-2" (click)="toggleanswer7()"
+              >+</span
+            >
+          </div>
+        </div>
+        <div class="thin-both-ends-line mt-3"></div>
+      </div>
+      <div class="col-md-6 d-flex flex-column p-5 gap-2 border-danger">
+        <div class="d-flex align-items-center">
+          <div class="p-2">
+            <span class="bg-black p-2 w-fit rounded-2">08</span>
+          </div>
+          <div>
+            <div>What are the StreamVibe payment methods?</div>
+            <div class="topHide answer grey" #answer8>
+              Visa, MasterCard, and PayPal.
+            </div>
+          </div>
+          <div class="p-2 ms-auto">
+            <span class="bg-black p-2 w-fit rounded-2" (click)="toggleanswer8()"
+              >+</span
+            >
+          </div>
+        </div>
+        <div class="thin-both-ends-line mt-3"></div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,8 @@
+.cardo:hover {
+    scale: 1.05;
+    transition-duration: 0.5s;
+
+}
+.cardo{
+    transition-duration: 0.5s;
+}
