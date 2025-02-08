@@ -1,119 +1,142 @@
-<div class="container text-white d-flex flex-column gap-3 p-0" >
-    <div class="ShowPoster">
-        <img
-        [src]="ShowDetailes.backdrop_path ? 'https://image.tmdb.org/t/p/w500/' + ShowDetailes.backdrop_path :'../../assets/images/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg'"
-        class="w-100 rounded-4"
-        alt=""
-      />
-     
-      <div class="ShowDetailes text-center p-5">
-        <h3 class="text-white">
-          {{ ShowDetailes.name }}
-        </h3>
-        <div class="d-flex gap-4 justify-content-center align-items-center">
-          <button class="border-0 p-3 rounded-2 bg-red scalo">
-            <a class="text-white">
-              <i class="fa-solid fa-play text-white"></i>
-              Play Now
-            </a>
-          </button>
-        </div>
+<div class="container text-white d-flex flex-column gap-3">
+  <div class="ShowPoster">
+    <img
+      [src]="
+        ShowDetailes.backdrop_path
+          ? 'https://image.tmdb.org/t/p/w500/' + ShowDetailes.backdrop_path
+          : '../../assets/images/depositphotos_247872612-stock-illustration-no-image-available-icon-vector.jpg'
+      "
+      class="w-100 rounded-4"
+      alt=""
+    />
+    <div class="ShowDetailes text-center p-5">
+      <h3 class="text-white">
+        {{ ShowDetailes.title }}{{ ShowDetailes.name }}
+      </h3>
+      <div class="d-flex gap-4 justify-content-center align-items-center">
+        <button class="border-0 p-3 rounded-2 bg-red scalo">
+          <a
+  class="text-white"
+>
+  <i class="fa-solid fa-play text-white"></i>
+  Play Now
+</a>
+
+        </button>
       </div>
     </div>
-    <div class="row">
-      <div class="col-lg-9 mt-2 d-flex flex-column gap-3 ">
-        <div class="p-4 br-thin text-center rounded-2">
-          <h5 class="grey fs-5">Discription</h5>
-          <P>{{ ShowDetailes.overview ? ShowDetailes.overview :'N/A' }}</P>
-        </div>
-        <div>
-          <div class="d-flex flex-column py-5 text-white p-5 rounded-3 br-thin">
-            <div>
-              <h2>Similar Shows</h2>
-            </div>
-            <div class="row flex-nowrap overflow-auto">
-              @for (show of SimilarShows; track $index) {
-              <div class=" col-lg-4 col-sm-6 col-md-12 my-4">
-                <div
-                  class="p-2 bg-card rounded-3 d-flex flex-column justify-content-between w-100 h-100 cardo cursor-pointer"
-                  [routerLink]="['/tv', show.id]"
-                  routerLinkActive="router-link-active"
-                >
-                  <div>
-                    <img
-                      [src]=" show.poster_path ?
-                        'https://image.tmdb.org/t/p/w500/' + show.poster_path :'../../assets/images/ezgif-6c3e90eb8dd16.png'
-                      "
-                      class="rounded-3 w-100"
-                      [alt]="show.overview"
-                    />
-                    <div class="text-center">
-                      <h4 class="text-wrap text-break m-0">
-                        {{ show.name }}{{ show.title }}
-                      </h4>
-                    </div>
+  </div>
+  <div class="row">
+    <div class="col-lg-9 mt-2 d-flex flex-column gap-3">
+      <div class="p-4 br-thin text-center rounded-2">
+        <h5 class="grey fs-5">Discription</h5>
+        <P>{{ ShowDetailes.overview ? ShowDetailes.overview : "N/A" }}</P>
+      </div>
+      <div>
+        <div class="d-flex flex-column py-5 text-white p-5 rounded-3 br-thin">
+          <div>
+            <h2>Similar Movies</h2>
+          </div>
+          <div class="row flex-nowrap overflow-auto">
+            @for (show of SimilarShows; track $index) {
+            <div class=" col-lg-4 col-sm-6  my-4">
+              <div
+                class="p-2 bg-card rounded-3 d-flex flex-column justify-content-between w-100 h-100 cardo cursor-pointer"
+                [routerLink]="['/tv', show.id]"
+                routerLinkActive="router-link-active"
+              >
+                <div>
+                  <img
+                    [src]="
+                      show.poster_path
+                        ? 'https://image.tmdb.org/t/p/w500/' + show.poster_path
+                        : '../../assets/images/ezgif-6c3e90eb8dd16.png'
+                    "
+                    class="rounded-3 w-100"
+                    [alt]="show.overview"
+                  />
+                  <div class="text-center">
+                    <h4 class="text-wrap text-break m-0">
+                      {{ show.name }}{{ show.title }}
+                    </h4>
                   </div>
-                  <div>
-                    <div class="text-center p-2 bg-1 rounded-3 my-1">
-                      <i class="fa-regular fa-calendar"></i>
-                      {{ show.first_air_date.split('-')[0] }}
-                    </div>
-                    <div class="text-center p-2 bg-1 rounded-3">
-                      <i class="fa-solid fa-star text-warning"></i>
-                      {{ show.vote_average }}
-                    </div>
+                </div>
+                <div>
+                  <div class="text-center p-2 bg-1 rounded-3 my-1">
+                    <i class="fa-regular fa-calendar"></i>
+                    {{
+                      show.first_air_date
+                        ? show.first_air_date.split("-")[0]
+                        : "N/A"
+                    }}
+                  </div>
+                  <div class="text-center p-2 bg-1 rounded-3">
+                    <i class="fa-solid fa-star text-warning"></i>
+                    {{ show.vote_average ? show.vote_average : "N/A" }}
                   </div>
                 </div>
               </div>
-              }
             </div>
+            }
           </div>
         </div>
       </div>
-      <div class="col-lg-3 mt-2">
-        <div class="p-4 br-thin rounded d-flex flex-column gap-4 h-100">
-          <div>
-            <h3 class="grey fs-5">
-              <i class="fa-regular fa-calendar"></i> Realease Year
-            </h3>
-            <p class="p-2 rounded-2 br-thin w-fit m-0">{{ ShowDetailes.first_air_date? ShowDetailes.first_air_date.split("-")[0]:'N/A' }}</p>
+    </div>
+    <div class="col-lg-3 mt-2">
+      <div class="p-4 br-thin rounded d-flex flex-column gap-4 h-100">
+        <div>
+          <h3 class="grey fs-5">
+            <i class="fa-regular fa-calendar"></i> Realease Year
+          </h3>
+          <p class="p-2 rounded-2 br-thin w-fit m-0">
+            {{
+              ShowDetailes ? ShowDetailes.first_air_date.split("-")[0] : "N/A"
+            }}
+          </p>
+        </div>
+        <div>
+          <h3 class="grey fs-5">
+            <i class="fa-solid fa-globe"></i> Available Languages
+          </h3>
+          <div class="d-flex flex-wrap gap-2">
+            @for (Language of ShowDetailes.spoken_languages; track $index) {
+            <p class="p-2 rounded-2 br-thin w-fit m-0">
+              {{ Language.name ? Language.name : "N/A" }}
+            </p>
+            }
           </div>
-          <div>
-            <h3 class="grey fs-5">
-              <i class="fa-solid fa-globe"></i> Available Languages
-            </h3>
-            <div class="d-flex flex-wrap gap-2">
-              @for (Language of ShowDetailes.spoken_languages; track $index) {
-              <p class="p-2 rounded-2 br-thin w-fit m-0">{{ Language.name ? Language.name:'N/AA' }}</p>
-              }
-            </div>
+        </div>
+        <div>
+          <h3 class="grey fs-5"><i class="fa-regular fa-star"></i> Ratings</h3>
+          <div class="p-3 br-thin w-fit rounded-2">
+            <i class="fa-solid fa-star red"></i
+            ><i class="fa-solid fa-star red"></i
+            ><i class="fa-solid fa-star red"></i
+            ><i class="fa-solid fa-star red"></i
+            ><i class="fa-solid fa-star red"></i>
+            {{
+              ShowDetailes.vote_average ? ShowDetailes.vote_average : "N/A"
+            }}
           </div>
-          <div>
-            <h3 class="grey fs-5"><i class="fa-regular fa-star"></i> Ratings</h3>
-            <div class="p-3 br-thin w-fit rounded-2">
-              <i class="fa-solid fa-star red"></i
-              ><i class="fa-solid fa-star red"></i
-              ><i class="fa-solid fa-star red"></i
-              ><i class="fa-solid fa-star red"></i
-              ><i class="fa-solid fa-star red"></i>
-              {{ ShowDetailes.vote_average ?ShowDetailes.vote_average:'N/A' }}
-            </div>
+        </div>
+        <div>
+          <h3 class="grey"><i class="fa-regular fa-face-smile"></i> Geners</h3>
+          <div class="d-flex flex-wrap gap-2">
+            @for (genre of ShowDetailes.genres; track $index) {
+            <p class="p-2 rounded-2 br-thin w-fit m-0">
+              {{ genre.name ? genre.name : "N/A" }}
+            </p>
+            }
           </div>
-          <div>
-            <h3 class="grey fs-5"><i class="fa-regular fa-face-smile"></i> Geners</h3>
-            <div class="d-flex flex-wrap gap-2">
-              @for (genre of ShowDetailes.genres; track $index) {
-              <p class="p-2 rounded-2 br-thin w-fit m-0">{{ genre.name ?genre.name:'N/A' }}</p>
-              }
-            </div>
-          </div>
-          <div>
-            <h3 class="grey fs-5"><i class="fa-regular fa-clock"></i> Number of seasons</h3>
-            <p class="p-2 rounded-2 br-thin w-fit m-0">{{ ShowDetailes.number_of_seasons?ShowDetailes.number_of_seasons:'N/A' }} Season</p>
-          </div>
+        </div>
+        <div>
+          <h3 class="grey"><i class="fa-regular fa-clock"></i> Runtime</h3>
+          <p class="p-2 rounded-2 br-thin w-fit m-0">
+            {{ ShowDetailes.number_of_seasons ? ShowDetailes.number_of_seasons : "N/A" }} minutes
+          </p>
         </div>
       </div>
     </div>
   </div>
-  <app-start-free-trial></app-start-free-trial>
-  
+</div>
+<app-start-free-trial></app-start-free-trial>
